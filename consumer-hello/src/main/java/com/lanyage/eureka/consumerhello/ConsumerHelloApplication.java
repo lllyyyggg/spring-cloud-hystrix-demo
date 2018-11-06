@@ -21,8 +21,7 @@ import org.springframework.web.client.RestTemplate;
 public class ConsumerHelloApplication {
 
     @Bean
-    @LoadBalanced
-        //负载均衡,也就是软负载均衡,该注解能让restTemplate启用客户端负载均衡
+    @LoadBalanced   //负载均衡,也就是软负载均衡,该注解能让restTemplate启用客户端负载均衡
     RestTemplate restTemplate() {
         return new RestTemplate();
     }
@@ -36,7 +35,6 @@ public class ConsumerHelloApplication {
         registrationBean.setName("HystrixMetricsStreamServlet");
         return registrationBean;
     }
-
     public static void main(String[] args) {
         SpringApplication.run(ConsumerHelloApplication.class, args);
     }
